@@ -21,6 +21,12 @@ public class CalcSalario {
         System.out.println("Funcionario 5:");
         salario05 = tc.nextDouble();
 
+        montaImprimeHolerite(salario01);
+        montaImprimeHolerite(salario02);
+        montaImprimeHolerite(salario03);
+        montaImprimeHolerite(salario04);
+        montaImprimeHolerite(salario05);
+
     }
 
     public static double calculaSalarioLiquido(double salarioBruto){
@@ -46,7 +52,7 @@ public class CalcSalario {
         double salario = salarioBruto - calculaInss(salarioBruto);
 
         if(salario <= 1903.98){
-            return salario;
+            return 0;
         } else if (salario <= 2826.65) {
             return salario * 0.075;
         } else if (salario <= 3751.05) {
@@ -56,17 +62,18 @@ public class CalcSalario {
         } else return salario * 0.2750;
     }
 
-    public static void CalculaImprimeHolerite(double salarioBruto){
+    public static void montaImprimeHolerite(double salarioBruto){
         double totalDesconto = calculaDesconto(salarioBruto);
         double salarioLiquido = calculaSalarioLiquido(salarioBruto);
         double inss = calculaInss(salarioBruto);
         double impostoRenda = calculaImpostoRenda(salarioBruto);
         System.out.println("Funcionario 0" + contador);
-        System.out.println("Salario bruto:      R$ " + salarioBruto);
-        System.out.println("Valor de INSS:      R$ " + inss);
-        System.out.println("Imposto de renda:   R$ " + impostoRenda);
-        System.out.println("Salario liquido:    R$ " + salarioLiquido);
-        System.out.println("Total de descontos: R$ " + totalDesconto);
+        System.out.printf("Salario bruto:      R$ %.2f \n",salarioBruto);
+        System.out.printf("Valor de INSS:      R$ %.2f \n", inss);
+        System.out.printf("Imposto de renda:   R$ %.2f \n", impostoRenda);
+        System.out.printf("Salario liquido:    R$ %.2f \n", salarioLiquido);
+        System.out.printf("Total de descontos: R$ %.2f \n", totalDesconto);
+        contador++;
     }
 
 }
