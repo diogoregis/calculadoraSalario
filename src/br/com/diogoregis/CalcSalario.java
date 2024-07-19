@@ -63,6 +63,7 @@ public class CalcSalario {
     }
 
     public static void montaImprimeHolerite(double salarioBruto){
+        System.out.println();
         double totalDesconto = calculaDesconto(salarioBruto);
         double salarioLiquido = calculaSalarioLiquido(salarioBruto);
         double inss = calculaInss(salarioBruto);
